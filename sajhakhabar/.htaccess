@@ -1,0 +1,11 @@
+RewriteEngine on
+#ErrorDocument 403 http://radiokaucha.com/
+#ErrorDocument 404 http://radiokaucha.com/404.php
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
+RewriteRule ^news\-details/([0-9]+)/([0-9]{4}-[0-1][0-9]-[0-3][0-9])$ detail-page.php?_catId=$1 [NC,L]
+RewriteRule ^audiogallery/([0-9]+)/(.*)$ archive_detail.php?catId=$1 [NC,L]
+RewriteRule ^more\-images/([0-9]+)/(.*)$ photo-detail.php?catId=$1 [NC,L]
+RewriteRule ^news\-articles/([0-9]+)/([a-zA-Z]+)$ news-page.php?catId=$1 [NC,L]
+RewriteRule ^our-team/([0-9]+)/(.*)$ page-team.php?catId=$1 [NC,L]
